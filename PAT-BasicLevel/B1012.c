@@ -12,7 +12,7 @@ int main() {
 
         switch (temp % 5) {
             case 0:
-                if (temp % 2 == 0) {
+                if (!(temp & 1)) {
                     count[0]++;
                     a[0] += temp;
                 }
