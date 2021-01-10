@@ -18,10 +18,9 @@ int main() {
         scanf("%d %d", &node[temp].data, &node[temp].next);
     }
 
-    //需要考虑给出的节点不在链表中的情况
     for (count = 0, p = head; p != -1; p = node[p].next) l[count++] = p;
 
-    for (i = 0; i + k <= count; i += k) {
+    for (i = 0; i + k - 1 < count; i += k) {
         for (j = i; j < i + k / 2; j++) {
             temp = l[j];
             l[j] = l[2 * i + k - 1 - j];
