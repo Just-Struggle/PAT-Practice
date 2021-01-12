@@ -6,7 +6,7 @@ int main() {
     char s1[81], s2[81];
     char c;
     bool bad[96] = {false};
-    int i, j, len1, len2;
+    int i, j, len1;
 
     scanf("%s%s", s1, s2);
 
