@@ -3,7 +3,7 @@
 int main() {
     int n, i, j, temp, max;
     int record[2][3] = {0}, gesture[2], winGesture[2][3] = {0};
-    char c;
+    char c, itoc[] = {'B', 'C', 'J'};
 
     scanf("%d", &n);
     getchar();
@@ -29,13 +29,13 @@ int main() {
             record[0][0]++;
             record[1][2]++;
             winGesture[0][gesture[0]]++;
-        } else if (temp == 1 || temp == -2) {  //乙胜甲负
+        } else if (temp == 0) {  //平局
+            record[0][1]++;
+            record[1][1]++;
+        } else {  //乙胜甲负
             record[0][2]++;
             record[1][0]++;
             winGesture[1][gesture[1]]++;
-        } else {  //平局
-            record[0][1]++;
-            record[1][1]++;
         }
     }
 
@@ -47,18 +47,7 @@ int main() {
         for (j = 1; j < 3; j++)
             if (winGesture[i][max] < winGesture[i][j]) max = j;
 
-        switch (max) {
-            case 0:
-                printf("B");
-                break;
-            case 1:
-                printf("C");
-                break;
-            case 2:
-                printf("J");
-                break;
-        }
-        printf("%c", i ? '\n' : ' ');
+        printf("%c%c", itoc[max], i ? '\n' : ' ');
     }
 
     return 0;
